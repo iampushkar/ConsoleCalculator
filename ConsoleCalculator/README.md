@@ -1,18 +1,39 @@
-## Getting Started
+Console Calculator App:
+-----------------------
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+1. operations : 
+    add
+    sub
+    multiply
+    divide
+    modulus
+    factorial
+    root
+    exponential
+    log
+    percentage
+    sine 
+    cosine
+    conversions
 
-## Folder Structure
+2. Show History : use Stack
+add (2, 3) = 5
+sub (19, 5) = 14
 
-The workspace contains two folders by default, where:
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+main() {
+    while (true) {
+        showMenu()
+        input -> ?
+        performAction(input)
+    }
+}
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+Github:
+-------
+Repository : Console Calculator
+main branch by default
+develop [create this branch]
+commit into develop
+Raise a PullRequest from develop to main 
+Add me as Reviewer

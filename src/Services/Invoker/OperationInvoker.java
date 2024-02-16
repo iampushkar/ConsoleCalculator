@@ -6,11 +6,12 @@ public class OperationInvoker {
 
     Commands commands;
 
-    public OperationInvoker(Commands commands) {
-        this.commands = commands;
-    }
-    String calculate()
+    public void setCommands(Commands commands)
     {
-        return commands.execute();
+        this.commands=commands;
+    }
+    public String calculate(String num1,String num2)
+    {
+        return commands.execute(num1,num2);
     }
 }

@@ -11,7 +11,7 @@ public class AdditionCommand implements Commands {
     }
 
     @Override
-    public String execute() {
-        return null;
+    public String execute(String num1,String num2) {
+        return receiver.addition(num1,num2);
     }
 }

@@ -10,8 +10,9 @@ public class PercentageCommand implements Commands{
         this.receiver = receiver;
     }
 
+
     @Override
-    public String execute() {
+    public String execute(String num1, String num2) {
         return null;
     }
 }

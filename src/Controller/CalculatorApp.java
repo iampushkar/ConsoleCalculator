@@ -1,7 +1,7 @@
 package Controller;
 
 import Repository.Receiver;
-import Services.Command.AdditionCommand;
+import Services.Command.*;
 import Services.Invoker.OperationInvoker;
 
 import java.util.Scanner;
@@ -24,14 +24,34 @@ public class CalculatorApp {
         {
             System.out.println("Enter your choice: ");
             String input=scanner.nextLine().trim();
+            System.out.println("Enter first number: ");
+            String num1=scanner.nextLine().trim();
+            System.out.println("Enter second number: ");
+            String num2=scanner.nextLine().trim();
             switch (input){
                 case "1":
-                    System.out.println("Enter first number: ");
-                    String num1=scanner.nextLine().trim();
-                    System.out.println("Enter second number: ");
-                    String num2=scanner.nextLine().trim();
                     operationInvoker.setCommands(new AdditionCommand(new Receiver()));
                     System.out.println("Addition Result is: "+operationInvoker.calculate(num1,num2));
+                    break;
+                case "2":
+                    operationInvoker.setCommands(new SubtractionCommand(new Receiver()));
+                    System.out.println("Subtraction Result is: "+operationInvoker.calculate(num1,num2));
+                    break;
+                case "3":
+                    operationInvoker.setCommands(new MultiplicationCommand(new Receiver()));
+                    System.out.println("Multiplication Result is: "+operationInvoker.calculate(num1,num2));
+                    break;
+                case "4":
+                    operationInvoker.setCommands(new DivisionCommand(new Receiver()));
+                    System.out.println("Division Result is: "+operationInvoker.calculate(num1,num2));
+                    break;
+                case "5":
+                    operationInvoker.setCommands(new PercentageCommand(new Receiver()));
+                    System.out.println("Percentage Result is: "+operationInvoker.calculate(num1,num2));
+                    break;
+                case "6":
+                    operationInvoker.setCommands(new LogarithmicCommand(new Receiver()));
+                    System.out.println("Logarithmic Result is: "+operationInvoker.calculate(num1,num2));
                     break;
                 case "8":
                     System.out.println("Exit Application...");

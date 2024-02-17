@@ -1,5 +1,7 @@
 package Repository;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 public class Receiver {
@@ -7,8 +9,8 @@ public class Receiver {
     Stack<String> history=new Stack<>();
     //Addition method
     public String addition(String num1,String num2) {
-        int a=Integer.parseInt(num1);
-        int b=Integer.parseInt(num2);
+        double a=Double.parseDouble(num1);
+        double b=Double.parseDouble(num2);
         String ans=String.valueOf(a+b);
         history.push("add( "+num1+", "+num2+") = "+ans);
         return ans;
@@ -16,8 +18,8 @@ public class Receiver {
 
     //subtraction method
     public String subtraction(String num1, String num2) {
-        int a=Integer.parseInt(num1);
-        int b=Integer.parseInt(num2);
+        double a=Double.parseDouble(num1);
+        double b=Double.parseDouble(num2);
         String ans=String.valueOf(a-b);
         history.push("sub( "+num1+", "+num2+") = "+ans);
         return ans;
@@ -25,8 +27,8 @@ public class Receiver {
 
     //Multiplication method
     public String multiplication(String num1, String num2) {
-        int a=Integer.parseInt(num1);
-        int b=Integer.parseInt(num2);
+        double a=Double.parseDouble(num1);
+        double b=Double.parseDouble(num2);
         String ans=String.valueOf(a*b);
         history.push("mul( "+num1+", "+num2+") = "+ans);
         return ans;
@@ -34,14 +36,18 @@ public class Receiver {
 
     //Division method
     public String division(String num1, String num2) {
-        int a=Integer.parseInt(num1);
-        int b=Integer.parseInt(num2);
-        String ans="";
+        double a=Double.parseDouble(num1);
+        double b=Double.parseDouble(num2);
+        double val;
         try {
-            ans=String.valueOf(a/b);
+            val=(a/b);
+            if(b==0){
+                throw new ArithmeticException();
+            }
         }catch (Exception e){
             return "Cant Divide by Zero";
         }
+        String ans=String.valueOf(val);
         history.push("div( "+num1+", "+num2+") = "+ans);
         return ans;
     }
@@ -52,7 +58,11 @@ public class Receiver {
         double b=Double.parseDouble(num2);
         Double val;
         try {
-            val=(a/b)*100;
+            val=(a/b);
+            val=val*100;
+            if(b==0){
+                throw new ArithmeticException();
+            }
         }catch (Exception e){
             return "Cant Divide by Zero";
         }
@@ -76,4 +86,9 @@ public class Receiver {
         return ans;
     }
 
+    //Show History
+    public List<String> showHistory() {
+        List<String> data = new ArrayList<>(history);
+        return data;
+    }
 }

@@ -1,15 +1,19 @@
 package Controller;
 
 import Repository.Receiver;
+import Repository.ShowHistory;
 import Services.Command.*;
 import Services.Invoker.OperationInvoker;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class CalculatorApp {
 
     private Scanner scanner = new Scanner(System.in);
     private OperationInvoker operationInvoker=new OperationInvoker();
+    Receiver receiver=new Receiver();
+    ShowHistory showHistory=new ShowHistory(receiver);
     public void runCalculatorApp() {
         //Running Calculator Application
         ShowMenuToUser();
@@ -24,34 +28,60 @@ public class CalculatorApp {
         {
             System.out.println("Enter your choice: ");
             String input=scanner.nextLine().trim();
-            System.out.println("Enter first number: ");
-            String num1=scanner.nextLine().trim();
-            System.out.println("Enter second number: ");
-            String num2=scanner.nextLine().trim();
+            String num1,num2;
             switch (input){
                 case "1":
-                    operationInvoker.setCommands(new AdditionCommand(new Receiver()));
+                    System.out.println("Enter first number: ");
+                    num1=scanner.nextLine().trim();
+                    System.out.println("Enter second number: ");
+                    num2=scanner.nextLine().trim();
+                    operationInvoker.setCommands(new AdditionCommand(receiver));
                     System.out.println("Addition Result is: "+operationInvoker.calculate(num1,num2));
                     break;
                 case "2":
-                    operationInvoker.setCommands(new SubtractionCommand(new Receiver()));
+                    System.out.println("Enter first number: ");
+                    num1=scanner.nextLine().trim();
+                    System.out.println("Enter second number: ");
+                    num2=scanner.nextLine().trim();
+                    operationInvoker.setCommands(new SubtractionCommand(receiver));
                     System.out.println("Subtraction Result is: "+operationInvoker.calculate(num1,num2));
                     break;
                 case "3":
-                    operationInvoker.setCommands(new MultiplicationCommand(new Receiver()));
+                    System.out.println("Enter first number: ");
+                    num1=scanner.nextLine().trim();
+                    System.out.println("Enter second number: ");
+                    num2=scanner.nextLine().trim();
+                    operationInvoker.setCommands(new MultiplicationCommand(receiver));
                     System.out.println("Multiplication Result is: "+operationInvoker.calculate(num1,num2));
                     break;
                 case "4":
-                    operationInvoker.setCommands(new DivisionCommand(new Receiver()));
+                    System.out.println("Enter first number: ");
+                    num1=scanner.nextLine().trim();
+                    System.out.println("Enter second number: ");
+                    num2=scanner.nextLine().trim();
+                    operationInvoker.setCommands(new DivisionCommand(receiver));
                     System.out.println("Division Result is: "+operationInvoker.calculate(num1,num2));
                     break;
                 case "5":
-                    operationInvoker.setCommands(new PercentageCommand(new Receiver()));
+                    System.out.println("Enter first number: ");
+                    num1=scanner.nextLine().trim();
+                    System.out.println("Enter second number: ");
+                    num2=scanner.nextLine().trim();
+                    operationInvoker.setCommands(new PercentageCommand(receiver));
                     System.out.println("Percentage Result is: "+operationInvoker.calculate(num1,num2));
                     break;
                 case "6":
-                    operationInvoker.setCommands(new LogarithmicCommand(new Receiver()));
+                    System.out.println("Enter first number: ");
+                    num1=scanner.nextLine().trim();
+                    System.out.println("Enter second number: ");
+                    num2=scanner.nextLine().trim();
+                    operationInvoker.setCommands(new LogarithmicCommand(receiver));
                     System.out.println("Logarithmic Result is: "+operationInvoker.calculate(num1,num2));
+                    break;
+                case "7":
+                    System.out.println("This are the past data: ");
+                    List<String> history=showHistory.execute();
+                    printHistory(history);
                     break;
                 case "8":
                     System.out.println("Exit Application...");
@@ -65,6 +95,17 @@ public class CalculatorApp {
                 break;
             }
             ShowMenuToUser();
+        }
+    }
+
+    private void printHistory(List<String> history)
+    {
+        if(history.size()==0){
+            System.out.println("No Data found!");
+        }else{
+            for (String s:history){
+                System.out.println(s);
+            }
         }
     }
 

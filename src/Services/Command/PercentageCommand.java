@@ -13,6 +13,6 @@ public class PercentageCommand implements Commands{
 
     @Override
     public String execute(String num1, String num2) {
-        return null;
+        return receiver.percentage(num1,num2);
     }
 }

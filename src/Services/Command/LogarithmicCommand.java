@@ -14,6 +14,6 @@ public class LogarithmicCommand implements Commands{
 
     @Override
     public String execute(String num1, String num2) {
-        return null;
+        return receiver.logarithmic(num1,num2);
     }
 }

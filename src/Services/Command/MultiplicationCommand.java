@@ -13,6 +13,6 @@ public class MultiplicationCommand implements Commands{
 
     @Override
     public String execute(String num1, String num2) {
-        return null;
+        return receiver.multiplication(num1,num2);
     }
 }

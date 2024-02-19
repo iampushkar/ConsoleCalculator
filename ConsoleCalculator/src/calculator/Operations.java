@@ -71,7 +71,24 @@ public class Operations {
         System.out.println("Result = " + result);
     }
 
-    public void percentage(Double percent) {
-        
+    public void percentage(Double number, Double total) {
+        Double result = (number / total) * 100;
+
+        System.out.println("Result = " + result);
+
+    }
+
+    public void sine(Double sinNum) {
+        Double result = Math.sin(sinNum);
+        System.out.println("result = " + result);
+    }
+
+    public void cosine(Double cosNum) {
+        Double result = Math.cos(cosNum);
+        System.out.println("result = " + result);
+    }
+
+    public void showHistory(){
+        String history = String.format(null, null);
     }
 }

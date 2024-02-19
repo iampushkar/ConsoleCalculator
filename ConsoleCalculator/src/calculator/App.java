@@ -81,10 +81,23 @@ public class App {
                 op.logarithm(arg);
                 break;
             case 10:
-                System.out.println("Enter the number");
-                Double percent = sc.nextDouble();
+                System.out.println("Enter the numbers");
+                Double number = sc.nextDouble();
+                Double total = sc.nextDouble();
 
-                op.percentage(percent);
+                op.percentage(number, total);
+                break;
+            case 11:
+                System.out.println("Enter the number");
+                Double sinNum = sc.nextDouble();
+
+                op.sine(sinNum);
+                break;
+            case 12:
+                System.out.println("Enter the number");
+                Double cosNum = sc.nextDouble();
+
+                op.sine(cosNum);
                 break;
 
             default:

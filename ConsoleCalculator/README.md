@@ -1,4 +1,3 @@
-# ConsoleCalculator
 Console Calculator App:
 -----------------------
 
@@ -33,8 +32,8 @@ main() {
 Github:
 -------
 Repository : Console Calculator
-    - main branch by default
-    - develop [create this branch]
-    - commit into develop
-    - Raise a PullRequest from develop to main 
-    - Add me as Reviewer ✅
+main branch by default
+develop [create this branch]
+commit into develop
+Raise a PullRequest from develop to main 
+Add me as Reviewer

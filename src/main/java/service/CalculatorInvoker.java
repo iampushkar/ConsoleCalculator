@@ -14,4 +14,7 @@ public class CalculatorInvoker {
     public void calculate(double num){
         command.execute(num);
     }
+    public void calculate(double num, String fromUnit){
+        command.execute(num, fromUnit);
+    }
 }

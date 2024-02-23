@@ -12,13 +12,15 @@ public class CalculatorController {
     public void runApplication(){
         while(true) {
             menu();
-            String userAction = getUserInput("Select the action you want to perform ");
+            String userAction = getUserInput();
             performAction(userAction);
         }
     }
 
     private void performAction(String userAction) {
         double[] numbers;
+        double number;
+        String unit;
         switch (userAction) {
             case "1":
                 numbers = getUserOperands();
@@ -46,33 +48,48 @@ public class CalculatorController {
                 calculatorInvoker.calculate(numbers[0], numbers[1]);
                 break;
             case "6":
-                double number = getUserOperand();
+                number = getUserOperand();
                 calculatorInvoker.setCommand(new FactorialCommand());
                 calculatorInvoker.calculate(number);
                 break;
             case "7":
-               // root();
+                number = getUserOperand();
+                calculatorInvoker.setCommand(new RootCommand());
+                calculatorInvoker.calculate(number);
                 break;
             case "8":
-               // exponential();
+                number = getUserOperand();
+                calculatorInvoker.setCommand(new ExponentialCommand());
+                calculatorInvoker.calculate(number);
                 break;
             case "9":
-                //logMethod();
+                number = getUserOperand();
+                calculatorInvoker.setCommand(new LogCommand());
+                calculatorInvoker.calculate(number);
                 break;
             case "10":
-               // sine();
+                number = getUserOperand();
+                calculatorInvoker.setCommand(new SineCommand());
+                calculatorInvoker.calculate(number);
                 break;
             case "11":
-               // cosine();
+                number = getUserOperand();
+                calculatorInvoker.setCommand(new CosineCommand());
+                calculatorInvoker.calculate(number);
                 break;
             case "12":
-               // percentage();
+                numbers = getUserOperands();
+                calculatorInvoker.setCommand(new PercentageCommand());
+                calculatorInvoker.calculate(numbers[0], numbers[1]);
                 break;
             case "13":
-              //  conversion();
+                number= getUserOperand();
+                unit = getUserOperandWithUnit();
+                calculatorInvoker.setCommand(new ConversionCommand());
+                calculatorInvoker.calculate(number, unit);
                 break;
             case "14":
-                showHistory();
+               // showHistory();
                 break;
             case "15":
                 System.exit(200);
@@ -93,14 +110,18 @@ public class CalculatorController {
     private double getUserOperand() {
         System.out.print("Enter number on which you want to perform action : ");
         return sc.nextDouble();
-    }
-
-    private void showHistory() {
 
     }
+    private String getUserOperandWithUnit() {
+        System.out.print("Enter unit : " );
+       // String presentUnit = sc.nextLine();
+       // String newUnit = sc.nextLine();
+       // return new String[]{presentUnit, newUnit};
+        return sc.nextLine();
+    }
 
-    private String getUserInput(String userInput) {
-        System.out.print(userInput + " : ");
+    private String getUserInput() {
+        System.out.print("Select the action you want to perform : ");
         return sc.nextLine();
     }
 

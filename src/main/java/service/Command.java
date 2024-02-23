@@ -8,4 +8,7 @@ public interface Command {
     default void execute(double num) {
         System.out.println("Execute operations like factorial, exp, log etc.");
     }
+    default void execute(double num, String fromUnit){
+        System.out.println("Execute conversion operation");
+    }
 }

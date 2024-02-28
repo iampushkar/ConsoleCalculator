@@ -7,7 +7,7 @@ public class CalculatorClient {
         while (true) {
             menu();
             String input = scanner.next();
-            performOperation(scanner,input, invoker);
+            performOperation(input, invoker);
 
         }
     }
@@ -19,27 +19,47 @@ public class CalculatorClient {
         System.out.println("2.Subtraction");
         System.out.println("3.Division");
         System.out.println("4.Multiplication");
+        System.out.println("5.Modulus");
+        System.out.println("6.Percentage");
+        System.out.println("7.Factorial");
+        System.out.println("8.Exponential");
+        System.out.println("9.Square root");
         System.out.println("16.Exit");
     }
 
-    private static void performOperation(Scanner scanner, String input, CalculatorInvoker invoker) {
+    private static void performOperation(String input, CalculatorInvoker invoker) {
         switch (input) {
             case "1":
-                System.out.println("Enter two numbers");
-                double num1 = scanner.nextDouble();
-                double num2 = scanner.nextDouble();
-                invoker.setCommand(new Addition());
-                invoker.executeCommand(num1, num2);
+                invoker.setCommand(new AdditionCommand());
                 break;
             case "2":
-                System.out.println("Enter two numbers");
-                double num3 = scanner.nextDouble();
-                double num4 = scanner.nextDouble();
-                invoker.setCommand(new Subtraction());
-                invoker.executeCommand(num3,num4);
+                invoker.setCommand(new SubtractionCommand());
+                break;
+            case "3":
+                invoker.setCommand(new DivisionCommand());
+                break;
+            case "4":
+                invoker.setCommand(new MultiplicationCommand());
+                break;
+            case "5":
+                invoker.setCommand(new ModulusCommand());
+                break;
+            case "6":
+                invoker.setCommand(new PercentageCommand());
+                break;
+            case "7":
+                invoker.setCommand(new FactorialCommand());
+                break;
+            case "8":
+                invoker.setCommand(new ExponentialCommand());
+                break;
+            case "9":
+                invoker.setCommand(new SquareRootCommand());
+                break;
             case "16":
                 System.exit(200);
         }
+        invoker.executeCommand();
     }
 
 }

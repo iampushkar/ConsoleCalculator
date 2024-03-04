@@ -8,7 +8,7 @@ This project implements a console calculator that performs basic arithmetic oper
 
 ## Features
 
-- Supports addition, subtraction, multiplication, and division.
+- Supports addition, subtraction, multiplication, division Percentage Modulus Factorial SquareRoot and Exponential .
 - Encapsulates each arithmetic operation as a command object.
 - Provides error handling for division by zero.
 
